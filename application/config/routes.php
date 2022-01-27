@@ -73,6 +73,7 @@ return [
     // help
     'help/<category>' => 'help/index',
     'help' => 'help/index',
+     
 
     // admin
     [

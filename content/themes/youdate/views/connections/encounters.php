@@ -1,3 +1,6 @@
+
+
+
 <?php
 
 /** @var $dataProvider \yii\data\ActiveDataProvider */
@@ -12,10 +15,14 @@ $this->params['body.cssClass'] = 'body-encounters d-block d-md-flex';
 $this->params['pageWrapper.cssClass'] = 'd-block d-sm-flex min-h-100';
 ?>
 
+
+
 <?php $this->beginContent('@theme/views/connections/_layout.php', ['counters' => $counters]) ?>
 
 <h3 class="page-title mb-5"><?= Yii::t('youdate', 'Encounters') ?></h3>
 
 <?= $this->render('_encounters', ['showQueue' => true]) ?>
+
+
 
 <?php $this->endContent() ?>

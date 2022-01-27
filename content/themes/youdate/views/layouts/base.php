@@ -36,6 +36,14 @@ $rtlEnabled = isset($this->params['rtlEnabled']) && $this->params['rtlEnabled'];
     <?= Html::csrfMetaTags() ?>
     <?php $this->head() ?>
     <?php $this->customHeaderCode() ?>
+    
+<style>
+     
+     .pop{
+         left: 0px!important;
+     }
+ 
+</style>
 </head>
 <body class="<?= $rtlEnabled ? 'rtl' : 'ltr' ?> <?= $bodyClass ?>">
 <?php $this->beginBody() ?>

@@ -15,6 +15,7 @@ use yii\behaviors\TimestampBehavior;
  * @property int $to_user_id
  * @property string $text
  * @property int $is_new
+ * @property int $beep
  * @property int $is_deleted_by_sender
  * @property int $is_deleted_by_receiver
  * @property int $created_at
@@ -67,7 +68,7 @@ class Message extends \app\base\ActiveRecord
     {
         return [
             [['from_user_id', 'to_user_id'], 'required'],
-            [['from_user_id', 'to_user_id', 'is_new', 'is_deleted_by_sender', 'is_deleted_by_receiver', 'created_at'], 'integer'],
+            [['from_user_id', 'to_user_id', 'is_new', 'beep', 'is_deleted_by_sender', 'is_deleted_by_receiver', 'created_at'], 'integer'],
             [['text'], 'string', 'max' => 1000],
             [['created_at'], 'integer'],
             [['from_user_id'], 'exist', 'skipOnError' => true,
@@ -116,6 +117,7 @@ class Message extends \app\base\ActiveRecord
             'to_user_id' => Yii::t('app', 'Receiver'),
             'text' => Yii::t('app', 'Message'),
             'is_new' => Yii::t('app', 'New'),
+            'beep' => Yii::t('app', 'c beep'),
             'is_deleted_by_sender' => Yii::t('app', 'Deleted'),
             'is_deleted_by_receiver' => Yii::t('app', 'Deleted'),
         ];

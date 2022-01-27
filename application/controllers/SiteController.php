@@ -8,6 +8,9 @@ use app\components\AppState;
 use app\components\ConsoleRunner;
 use app\helpers\Url;
 use app\models\Language;
+use app\models\Message;
+use app\models\User;
+use app\models\Photo;
 use app\traits\CountryTrait;
 use Yii;
 use yii\captcha\CaptchaAction;
@@ -147,4 +150,73 @@ class SiteController extends \app\base\Controller
 
         return $this->redirect($this->request->referrer ?: Yii::$app->homeUrl);
     }
+
+    public function actionCreate(){
+        $uid = $_POST['uid'];
+        $message = Message::find()->where(['to_user_id' => $uid])->andWhere(['is_new' => '1'])->all();
+        foreach($message as $msg){
+            $msgId = $msg->id;
+            $newMessage = $msg->text;
+            $senderId = $msg->from_user_id;
+            $beep = $msg->beep;
+        }
+
+        $sender = User::find()->where(['id' => $senderId])->all();
+        foreach($sender as $send){
+            $senderName = $send->username;
+        }
+
+        $photo = Photo::find()->where(['user_id' => $senderId])->all();
+        foreach($photo as $photo){
+            $image = $photo->source;
+            
+        }
+
+
+
+
+        $data = [
+            'msgId' => $msgId,
+            'newMessage' => $newMessage,
+            'senderName' => $senderName,
+            'senderImage' => $image,
+            'beep' => $beep,
+            
+            
+        ];
+
+        return $this->asJson($data);
+
+    }
+
+    public function actionBeep(){
+        $msgId = $_POST['msgId'];
+        
+        $msg = Message::findOne($msgId);
+        $msg->beep = 1;
+        $msg->save();
+
+        $ar = [
+            'msg' => "Beep Update",
+        ];
+        return $this->asJson($ar);
+    }
+
+    public function actionUpme(){
+        $msgId = $_POST['msgId'];
+        $uid = $_POST['uid'];
+        
+        $msg = Message::findOne($msgId);
+        $msg->is_new = 0;
+        $msg->save();
+
+        $ar = [
+            'msg' => "Is_New Update",
+        ];
+        return $this->asJson($ar);
+
+    }
+
+    
+
 }

@@ -169,9 +169,9 @@ class ConfigForm extends Model
      */
     private function chmodRecursive($path)
     {
-		$dir = new \DirectoryIterator($path);
+        $dir = new \DirectoryIterator($path);
         foreach ($dir as $item) {
-            //chmod($item->getPathname(), 0775);
+            chmod($item->getPathname(), 0775);
             if ($item->isDir() && !$item->isDot()) {
                 $this->chmodRecursive($item->getPathname());
             }

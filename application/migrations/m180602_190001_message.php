@@ -15,6 +15,7 @@ class m180602_190001_message extends Migration
             'to_user_id' => $this->integer()->notNull(),
             'text' => $this->string(1000)->notNull()->append('COLLATE utf8mb4_bin'),
             'is_new' => $this->boolean()->defaultValue(true),
+            'beep' => $this->boolean()->defaultValue(false),
             'is_deleted_by_sender' => $this->boolean()->defaultValue(false),
             'is_deleted_by_receiver' => $this->boolean()->defaultValue(false),
             'created_at' => $this->integer(),
