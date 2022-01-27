@@ -415,7 +415,10 @@ $(document).ready(function() {
 });
 
 function appBaseUrl() {
-    return $('meta[name=baseUrl]').attr("content");
+	console.log(window.location.protocol+'//'+window.location.host+'//');
+	//console.log($('meta[name=baseUrl]').attr("content"));
+    //return $('meta[name=baseUrl]').attr("content");
+    return window.location.protocol+'//'+window.location.host+'//';
 }
 
 function first(p) {
