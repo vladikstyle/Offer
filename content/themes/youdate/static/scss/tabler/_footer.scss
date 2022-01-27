@@ -1,0 +1,40 @@
+.footer {
+	background: $footer-bg;
+	border-top: $border-width solid lighten($border-color, 25%);
+
+	font-size: px2rem(14px);
+	padding: 1rem 0;
+	color: $text-muted;
+
+	a:not(.btn) {
+		color: $text-muted-dark;
+	}
+
+	@media print {
+		display: none;
+	}
+}
+
+.col-auto {
+	max-width: 100%;
+}
+@media (min-width: 576px) {
+	.col-sm-auto {
+		max-width: 100%;
+	}
+}
+@media (min-width: 768px) {
+	.col-md-auto {
+		max-width: 100%;
+	}
+}
+@media (min-width: 992px) {
+	.col-lg-auto {
+		max-width: 100%;
+	}
+}
+@media (min-width: 1280px) {
+	.col-xl-auto {
+		max-width: 100%;
+	}
+}

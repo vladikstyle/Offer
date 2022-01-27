@@ -1,0 +1,29 @@
+body:not(.body-landing-page) .header:first-child {
+    background: #fff7ff;
+}
+.body-landing-page .header:first-child .header-brand {
+    color: white;
+}
+.nav-tabs .nav-link.active {
+    color: deeppink;
+    border-color: deeppink;
+}
+.header-brand:hover {
+    color: deeppink;
+}
+
+.dark:not(.body-landing-page) .header:first-child {
+    background: #434;
+}
+.dark .header:first-child .header-brand {
+    color: #eee !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    body:not(.body-landing-page) .header:first-child {
+        background: #434;
+    }
+    .header:first-child .header-brand {
+        color: #eee !important;
+    }
+}

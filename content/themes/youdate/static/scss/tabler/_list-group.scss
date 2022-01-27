@@ -1,0 +1,29 @@
+.list-group-item {
+  &.active {
+    .icon {
+      color: inherit !important;
+    }
+  }
+}
+
+.list-group-transparent {
+  .list-group-item {
+    background: none;
+    border: 0;
+    padding: .5rem 1rem;
+
+    & + & {
+      &.active {
+        border-top-width: 0 !important;
+      }
+    }
+
+    &.active {
+      background: rgba($primary, .06);
+      font-weight: 600;
+      border-top-width: 0 !important;
+      border-radius: $border-radius;
+    }
+
+  }
+}

@@ -1,0 +1,24 @@
+.selectize-control {
+  height: 38px;
+}
+
+select {
+  display: none;
+}
+.selectize-control select {
+  display: block;
+}
+
+.hint-block {
+  margin-top: 0.5rem;
+  font-size: 9pt;
+  a {
+    color: $blue;
+  }
+}
+
+.has-error .help-block {
+  color: #cd201f;
+  font-size: 0.9rem;
+  padding-top: 3px;
+}

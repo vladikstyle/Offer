@@ -1,0 +1,31 @@
+@import "variables";
+
+.app-status-item {
+  display: flex;
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  .icon {
+    margin-right: 10px;
+    i {
+      font-size: 14pt;
+    }
+    &.good {
+      color: @green;
+    }
+    &.warning {
+      color: @orange;
+    }
+    &.fail {
+      color: @red;
+    }
+  }
+  .item {
+    font-weight: bolder;
+  }
+  .description {
+    margin-top: 3px;
+    color: @gray-600;
+  }
+}

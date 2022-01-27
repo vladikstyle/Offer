@@ -1,0 +1,150 @@
+.nav-link,
+.nav-item {
+	padding: 0 .75rem;
+	min-width: 2rem;
+	transition: .3s color;
+	user-select: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+
+	.badge {
+		position: absolute;
+		top: -0.3rem;
+		right: -0.3rem;
+		padding: .2rem .25rem;
+		min-width: 1rem;
+	}
+}
+
+.nav-tabs {
+	user-select: none;
+	color: $text-muted;
+	margin: 0.25rem 0;
+
+	.nav-item {
+		padding-left: 0;
+		padding-right: 0;
+
+		@include media-breakpoint-up(sm) {
+			margin-right: 0.5rem;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&.active {
+			.icon {
+				color: $blue !important;
+			}
+		}
+	}
+
+	.nav-link {
+		border: 0;
+		border-radius: $border-radius;
+		color: inherit;
+		font-weight: 400;
+		padding: 0.3rem 0;
+		transition: .2s all;
+
+		&:hover:not(.disabled) {
+			background: $gray-200;
+			color: $gray-600;
+		}
+
+		&.active {
+			background: $gray-200;
+			color: $blue !important;
+		}
+
+		&.disabled {
+			opacity: .4;
+			cursor: default;
+			pointer-events: none;
+		}
+
+		@include media-breakpoint-down(sm) {
+			padding: 0.3rem 0.3rem;
+			margin-left: 0.1rem;
+			margin-right: 0.1rem;
+			.icon {
+				font-size: 1.1rem;
+				margin-bottom: 0.25rem;
+			}
+			.label {
+				font-size: 0.9rem;
+			}
+		}
+
+		@include media-breakpoint-up(sm) {
+			padding: 0.3rem 0.75rem;
+			.icon {
+				font-size: 1.1rem;
+				margin-right: 0.5rem;
+			}
+		}
+
+		@include media-breakpoint-up(md) {
+			margin-top: 0.1rem;
+			margin-bottom: 0.1rem;
+			padding: 0.5rem 0.75rem;
+			.icon {
+				font-size: 1.1rem;
+				margin-right: 0.5rem;
+			}
+		}
+	}
+
+	.nav-item {
+		margin-bottom: 0;
+		position: relative;
+
+		i {
+			margin-right: .25rem;
+			line-height: 1;
+			font-size: px2rem(14px);
+			width: px2rem(14px);
+			vertical-align: baseline;
+			display: inline-block;
+		}
+
+		&:hover {
+			.nav-submenu {
+				display: block;
+			}
+		}
+	}
+
+	.nav-submenu {
+		display: none;
+		position: absolute;
+		background: #fff;
+		border: 1px solid $border-color;
+		border-top: none;
+		z-index: 10;
+		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+		min-width: 10rem;
+		border-radius: 0 0 3px 3px;
+
+		.nav-item {
+			display: block;
+			padding: .5rem 1rem;
+			color: $text-muted;
+			margin: 0 !important;
+			cursor: pointer;
+			transition: .3s background;
+
+			&.active {
+				color: $link-color;
+			}
+
+			&:hover {
+				color: $text-muted-dark;
+				text-decoration: none;
+				background: rgba(0, 0, 0, .024);
+			}
+		}
+	}
+}

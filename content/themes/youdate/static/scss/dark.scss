@@ -1,0 +1,527 @@
+@import "variables";
+
+/** Core **/
+body {
+  background: $dark-background-color;
+  color: $dark-foreground-color;
+}
+.header {
+  background: $dark-header-background-color;
+  border-color: $dark-header-border-color;
+  color: $dark-foreground-color;
+}
+.footer {
+  background: $dark-footer-background-color;
+  border-color: $dark-footer-border-color;
+}
+.nav-unread {
+  background: $dark-danger;
+}
+.nav-tabs {
+  .nav-link {
+    &:hover {
+      background: $gray-950 !important;
+      color: $gray-200 !important;
+    }
+    &.active {
+      background: $dark-black-background;
+      color: $dark-primary;
+    }
+  }
+}
+.text-dark {
+  color: $gray-100 !important;
+}
+a.text-dark:hover, a.text-dark:focus {
+  color: $dark-foreground-color !important;
+}
+.text-light {
+  color: $gray-400 !important;
+}
+.text-default {
+  color: $gray-500 !important;
+}
+.bg-red {
+  background: $dark-danger !important;
+}
+
+/** Buttons **/
+.btn-primary {
+  background: $dark-primary;
+  color: $gray-300;
+  &:hover {
+    background: lighten($dark-primary, 1%) !important;
+  color: $gray-100 !important;
+  }
+  &:focus {
+    background: darken($dark-primary, 1%) !important;
+    color: $white !important;
+  }
+}
+.btn-outline-primary {
+  border-color: $dark-primary;
+  color: $dark-primary;
+  &:hover {
+    background: $dark-primary;
+  }
+}
+.btn-secondary {
+  background: $dark-secondary;
+  color: $gray-300;
+  &:hover {
+    background: lighten($dark-secondary, 1%) !important;
+    color: $gray-100 !important;
+  }
+  &:focus {
+    background: darken($dark-secondary, 1%) !important;
+    color: $white !important;
+  }
+}
+.btn-danger {
+  background: $dark-danger;
+  color: $gray-300;
+  &:hover {
+    background: lighten($dark-danger, 1%) !important;
+    color: $gray-100 !important;
+  }
+  &:focus {
+    background: darken($dark-danger, 1%) !important;
+    color: $white !important;
+  }
+}
+.selectgroup-button {
+  border-color: $gray-900;
+  &:hover {
+    color: $gray-300;
+    border-color: $gray-700;
+  }
+}
+.selectgroup-input:checked + .selectgroup-button {
+  background: $gray-900;
+}
+.btn-secondary.disabled, .btn-secondary:disabled {
+  background: $gray-700;
+  color: $gray-500;
+  &:hover {
+    background: $gray-700 !important;
+    color: $gray-500 !important;
+  }
+}
+.page-link {
+  background: $dark-background-color;
+  color: $gray-600;
+  border-color: $gray-900;
+  &:hover {
+    background: $gray-800;
+    color: $gray-200;
+    border-color: $gray-700;
+  }
+}
+.page-item.disabled .page-link {
+  background: $dark-black-background;
+  color: $dark-foreground-color;
+  border-color: $gray-900;
+}
+
+/** Controls **/
+.form-control {
+  background: $dark-form-control-background;
+  color: $gray-400;
+  border-color: lighten($dark-form-control-background, 1%);
+  &:focus {
+    background: lighten($dark-form-control-background, 2%);
+    color: $gray-100;
+  }
+}
+.form-control:disabled, .form-control[readonly] {
+  background: rgba($dark-form-control-background, 0.45);
+  color: $gray-700;
+  &::placeholder {
+    color: $gray-700;
+  }
+}
+.custom-control-label:before {
+  background: $dark-black-background;
+}
+.selectize-input.full {
+  background: $dark-black-background;
+  color: $gray-200 !important;
+}
+.selectize-control.single .selectize-input:after {
+  background-color: #303040 !important;
+  color: #cce !important;
+}
+.selectize-input, .selectize-control.single .selectize-input.input-active {
+  background: #303040 !important;
+  color: #cce !important;
+}
+.selectize-dropdown {
+  background: #303040;
+  color: #cce !important;
+  border-color: #467fcf !important;
+}
+.selectize-input.dropdown-active::before {
+  background: #303040 !important;
+}
+.selectize-dropdown .active {
+  background: #121220;
+  color: #fefefe;
+}
+
+/** Alerts **/
+.alert .close {
+  text-shadow: none !important;
+}
+.alert.alert-primary {
+  background: $dark-primary;
+  border-color: $dark-primary;
+  color: lighten($dark-danger, 50%);
+  a {
+    color: $gray-100;
+  }
+}
+.alert.alert-danger {
+  background: $dark-danger;
+  border-color: $dark-danger;
+  color: lighten($dark-danger, 50%);
+}
+.alert.alert-warning {
+  background: $dark-warning;
+  border-color: $dark-warning;
+  color: lighten($dark-warning, 50%);
+}
+.alert.alert-success {
+  background: $dark-success;
+  border-color: $dark-success;
+  color: lighten($dark-success, 50%);
+}
+.alert.alert-info {
+  background: $dark-info;
+  border-color: $dark-info;
+  color: lighten($dark-info, 50%);
+}
+
+.has-error .help-block {
+  color: lighten($dark-danger, 35%);
+}
+.has-success .help-block {
+  color: lighten($dark-success, 35%);
+}
+
+/** Avatars **/
+.avatar {
+  background-color: $dark-card-border-color;
+}
+
+/** Dropdown **/
+.dropdown-menu {
+  background: $dark-black-background;
+  color: $gray-800;
+  .dropdown-divider {
+    border-color: $gray-950;
+  }
+  .dropdown-item:hover, .dropdown-item:focus {
+    background: lighten($dark-black-background, 3%);
+    color: $gray-400;
+  }
+}
+.dropdown-notifications {
+  .nav-link:hover {
+    background: $gray-950 !important;
+    color: $gray-100 !important;
+  }
+  .dropdown-menu .dropdown-item a {
+    color: $gray-600;
+    &:hover {
+      color: $gray-100;
+    }
+  }
+}
+
+/** Cards **/
+.card {
+  background: $dark-card-background;
+  border-color: $dark-card-border-color;
+  box-shadow: 0 7px 14px 0 rgba(3, 15, 22, 0.60), 0 3px 6px 0 rgba(4, 6, 8, 0.25);
+  .card-header, .card-footer {
+    border-color: $dark-card-border-color;
+  }
+}
+.directory-list-view .directory-item .card-img-top-wrapper {
+  background: $gray-950;
+}
+.directory-list-view .directory-item .card-premium .card-img-top-wrapper {
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+.directory-list-view .directory-item .card-premium {
+  background: $dark-card-premium;
+}
+
+.directory-list-view .directory-banner {
+  background: lighten($dark-card-background, 10%);
+  color: $gray-500;
+  .boost-up {
+    background: $dark-black-background;
+  }
+}
+.modal-search {
+  .form-group {
+    &:hover .custom-control {
+      background: $gray-900;
+    }
+  }
+}
+
+/** Badges **/
+.badge-secondary {
+  background: $dark-secondary;
+}
+
+/** Navs **/
+.list-group-item {
+  background: $dark-card-background;
+  border-color: $dark-card-border-color;
+}
+.list-group-transparent .list-group-item {
+  color: $gray-200;
+}
+.list-group-transparent .list-group-item.active {
+  color: $dark-primary;
+}
+
+/** Tables **/
+.table tr td {
+  color: $gray-200;
+  border-color: $gray-950;
+}
+
+/** Modals **/
+.modal .modal-content {
+  background: $gray-950;
+}
+.modal-header .close {
+  text-shadow: none !important;
+}
+.modal .modal-header,
+.modal .modal-footer {
+  border-color: $dark-black-background;
+}
+.modal .close {
+  color: $gray-400;
+}
+.modal .close:not(:disabled):not(.disabled):hover,
+.modal .close:not(:disabled):not(.disabled):focus {
+  color: $gray-100;
+}
+.modal-auth, .col-login,
+.modal-register, .col-registration {
+  .divider {
+    &:before {
+      border-bottom: 1px solid $dark-border-color;
+    }
+    span {
+      background: $gray-900;
+      color: $gray-300;
+    }
+  }
+}
+
+/** Profile **/
+.profile-info .profile-info-block {
+  border-color: $gray-950;
+}
+.profile-photos .profile-main-photo .photo-wrapper {
+  background: $dark-black-background;
+}
+.profile-main-info .like-toggle {
+  border-color: $gray-950;
+}
+.profile-photos .profile-photo-item .photo-wrapper {
+  background: $dark-black-background;
+  .profile-photo-label {
+    background: rgba($dark-black-background, 0.8);
+  }
+}
+.profile-main-info .like-toggle .btn-like-toggle.btn-not-liked {
+  background: $dark-black-background;
+}
+.modal-user-gifts .gifts .gift .gift-info .sender {
+  color: $gray-200;
+}
+.card-gifts .gifts .gift .sender {
+  color: $gray-400;
+}
+.modal-gift-form .gift-picker .gift-item {
+  background: $gray-950;
+}
+.modal-gift-form .gift-picker .gift-input:hover + .gift {
+  border-color: $gray-900;
+}
+.modal-gift-form .gift-picker .gift-input:focus + .gift {
+  border-color: $dark-primary;
+}
+.modal-gift-form .gift-picker .badge-default {
+  background: $dark-black-background;
+}
+.modal-gift-form .gift-picker .gift-category {
+  color: $gray-200;
+}
+.profile-extra-fields {
+  .drop-blur {
+    background: rgba($dark-card-background, 0.5);
+    backdrop-filter: blur(3px);
+    .text {
+      background: rgba($gray-800, 0.8);
+    }
+  }
+}
+
+.online-status {
+  border: 2px solid $gray-800;
+  background: $gray-950;
+}
+
+/** Notifications **/
+.notifications-list .notification-item.new {
+  background: $gray-900;
+}
+.notifications-list a {
+  color: $dark-primary;
+}
+
+/** Encounters **/
+.encounters .encounters-queue .queue-item {
+  background: $dark-black-background;
+}
+.encounters .encounters-queue .queue-item.active img {
+  border-color: $gray-900;
+}
+
+/** Spotlight **/
+.spotlight-items-horizontal .spotlight-item.spotlight-item-submit .avatar:before {
+  background-color: rgba($dark-black-background, 0.7);
+}
+.spotlight-items-horizontal .spotlight-item {
+  color: $gray-300;
+  &:hover {
+    color: $gray-100;
+  }
+}
+
+/** Transactions **/
+.transactions-grid-view .transaction-remove {
+  color: $dark-danger;
+}
+.transactions-grid-view .transaction-add {
+  color: $dark-success;
+}
+
+/** Messages **/
+.messages-conversation {
+  .conversation-header {
+    background: $dark-card-header-background !important;
+    border-color: $dark-black-background;
+  }
+  .conversation-input {
+    background: $dark-card-background !important;
+    border-color: $dark-black-background;
+  }
+  .conversation-items .date span {
+    border-color: $dark-card-border-color;
+    color: $gray-300;
+  }
+  .conversation-items .item.selected {
+    background: $dark-list-selection;
+  }
+}
+.messages-conversations .conversations .conversation {
+  background: $dark-list-group-item-background;
+  &.premium {
+    background: $dark-card-premium;
+  }
+  &.premium.active, &.active {
+    background: $dark-primary;
+  }
+  .name {
+    color: $gray-200;
+  }
+  .message {
+    color: $gray-500;
+  }
+}
+.messages-conversation .conversation-items {
+  .item.inbox .text {
+    background: $dark-card-header-background !important;
+    color: $gray-200 !important;
+  }
+  .item.sent .text {
+    background: $dark-primary !important;
+    color: $gray-200 !important;
+  }
+}
+.col-messages-conversations {
+  border-color: $dark-black-background;
+}
+
+/** Landing page **/
+.landing-page-head .subtitle {
+  color: $gray-200;
+}
+.body-landing-page .content-landing .landing-page-signup-head h1 {
+  color: $gray-200;
+}
+
+/** Groups **/
+.group-header {
+  background: transparent;
+  box-shadow: 0 7px 14px 0 rgba(3, 15, 22, 0.60), 0 3px 6px 0 rgba(4, 6, 8, 0.25);
+  border-radius: $border-radius;
+  .group-cover {
+    background-color: darken($dark-primary, 25%);
+  }
+  .group-info {
+    background: $dark-card-background;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+}
+.post-new .post-content-field {
+  background: $dark-form-control-background;
+  color: $gray-200;
+}
+.post .post-footer .btn-icon.vote-active {
+  color: $dark-danger;
+}
+.btn-secondary, .post-new .upload-kit .upload-kit-input {
+  background: $dark-secondary;
+  color: $gray-200;
+  &:hover {
+    background: lighten($dark-secondary, 1%) !important;
+    color: $gray-100 !important;
+  }
+  &:focus {
+    background: darken($dark-secondary, 1%) !important;
+    color: $white !important;
+  }
+}
+
+/** Language switcher **/
+.modal-language-switcher {
+  .language-item {
+    .language-name {
+      color: $gray-100;
+    }
+    .language-name-ascii {
+      color: $gray-400;
+    }
+    .language-name-active {
+      background: rgba($green, 0.4);
+      color: lighten($green, 20%);
+    }
+    &:hover {
+      text-decoration: none;
+      background: $gray-800;
+    }
+  }
+}

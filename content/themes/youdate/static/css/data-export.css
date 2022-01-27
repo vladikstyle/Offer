@@ -1,0 +1,19 @@
+.container {
+    max-width: 960px;
+}
+.info-row {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px dashed #eee;
+}
+.info-row:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+.info-row .heading {
+    font-weight: bolder;
+}
+.info-row .value {
+    color: #777;
+    text-align: right;
+}

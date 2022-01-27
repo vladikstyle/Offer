@@ -1,0 +1,8 @@
+{
+  "title": "Custom",
+  "author": "Alexander Kononenko",
+  "website": "https://youdate.website/",
+  "version": "1.12",
+  "namespace": "custom",
+  "extends": "youdate"
+}

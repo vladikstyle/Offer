@@ -1,0 +1,35 @@
+.col-registration, .col-auth, .col-recovery, .col-resend {
+  max-width: 36rem;
+}
+
+.auth-clients {
+  padding-left: 0;
+}
+
+.modal-auth, .col-login,
+.modal-register, .col-registration {
+  .divider {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    height: 1px;
+    position: relative;
+    &:before {
+      border-bottom: 1px solid $border-color;
+      content: "";
+      display: block;
+      height: 1px;
+    }
+    span {
+      background: #fff;
+      color: #a0a0a0;
+      font-size: .75rem;
+      left: 50%;
+      margin-top: -1px;
+      padding: 0 12px;
+      position: absolute;
+      top: 50%;
+      transform: translate3d(-50%,-50%,0);
+      white-space: nowrap;
+    }
+  }
+}

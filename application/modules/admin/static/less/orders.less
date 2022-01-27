@@ -1,0 +1,23 @@
+@import "variables";
+
+.payment-icon {
+  width: 48px;
+  height: 30px;
+  padding-left: 4px;
+  display: inline-block;
+  border: 1px solid @gray-300;
+  border-radius: 3px;
+  &.payment-icon-stripe {
+    background: url('../images/payments/stripe.svg') center no-repeat;
+    background-size: 100% auto;
+  }
+  &.payment-icon-paypal {
+    background: url('../images/payments/paypal.svg') center no-repeat;
+    background-size: 100% auto;
+  }
+  &.payment-icon-robokassa {
+    background: url('../images/payments/robokassa.svg') center no-repeat;
+    background-size: 90% auto;
+
+  }
+}

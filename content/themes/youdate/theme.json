@@ -1,0 +1,8 @@
+{
+  "title": "YouDate",
+  "author": "Alexander Kononenko",
+  "website": "https://youdate.website/",
+  "version": "2.0",
+  "namespace": "youdate",
+  "darkModeSupported": true
+}
