@@ -14,6 +14,10 @@ $this->params['pageWrapper.cssClass'] = 'd-flex min-h-100';
 $this->params['footer.cssClass'] = 'footer d-none d-sm-block';
 \youdate\assets\MessagesAsset::register($this);
 ?>
+
+
+
+
 <div class="card card-messages my-0 my-sm-3 my-md-5" ng-app="youdateMessages"
      data-user-id="<?= Yii::$app->user->id ?>"
      data-user-avatar="<?= Html::encode($profile->getAvatarUrl(Profile::AVATAR_SMALL, Profile::AVATAR_SMALL)) ?>"

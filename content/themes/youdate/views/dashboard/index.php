@@ -21,7 +21,7 @@ $this->context->layout = 'page-main';
 
 
 <?php
-$uid = $user->id;
+$uid = Yii::$app->user->id;
 ?>
 
 <!-- Audio -->
@@ -41,7 +41,7 @@ $uid = $user->id;
         <img src="" id="senderImage" width="110px" height="50px" style="border-radius: 50%; margin-top: 10px;" alt="">
     </div>
     <div class="col-10">
-        <span style="font-size: 16px; margin-bottom: 0px;">'<span id="senderName"></span>' send's you a new message!</span><span style="float: right; font-size:18px; margin-right: 5px; cursor: pointer;" id="x" data-myval="0">x</span>
+        <span style="font-size: 16px; margin-bottom: 0px;"><span id="senderName"></span> send's you a new message!</span><span style="float: right; font-size:18px; margin-right: 5px; cursor: pointer;" id="x" data-myval="0">x</span>
         <p id="newMessage"></p>
         <a href="messages" class="btn btn-primary btn-sm">Reply</a>
     </div>
@@ -55,8 +55,10 @@ $uid = $user->id;
 <!-- Ajax Call For Getting Data -->
 
 <script>
-    var audio = new Audio('content/themes/youdate/views/notificationTone/tone.mp3');
+ 
    $(document).ready(function() {
+    $('audio').get(0).load();
+    $('audio').get(0).pause();
   setInterval(function() {
     var uid = <?php echo $uid;?>
     
@@ -67,6 +69,7 @@ $uid = $user->id;
         data: {uid:uid},   
         dataType: 'json',                        
         success: function(data){  
+            
             
             if(data != ''){
                 $('#x').data('msgId',data.msgId);

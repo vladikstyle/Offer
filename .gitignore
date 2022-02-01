@@ -1,0 +1,40 @@
+# ide settings
+.idea/
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# Mac DS_Store Files
+.DS_Store
+
+# Temporal dev files
+node_modules/
+
+# App config
+.env
+.env-local
+
+# App related
+robots.txt
+
+#Ignore all big files
+*.jpg
+*.png
+*.jpeg
+*.gif
+*.zip
+*.mp4
+*.mp3
+application/installer/data/geodata.sql
+application/installer/data/countries.sql
+application/installer/data/core.sql
+
+

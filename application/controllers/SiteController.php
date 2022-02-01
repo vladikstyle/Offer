@@ -161,10 +161,14 @@ class SiteController extends \app\base\Controller
             $beep = $msg->beep;
         }
 
+        
+
         $sender = User::find()->where(['id' => $senderId])->all();
         foreach($sender as $send){
             $senderName = $send->username;
         }
+
+        
 
         $photo = Photo::find()->where(['user_id' => $senderId])->all();
         foreach($photo as $photo){
@@ -172,20 +176,36 @@ class SiteController extends \app\base\Controller
             
         }
 
+        
 
-
-
-        $data = [
-            'msgId' => $msgId,
-            'newMessage' => $newMessage,
-            'senderName' => $senderName,
-            'senderImage' => $image,
-            'beep' => $beep,
-            
-            
-        ];
+        if(empty($photo)){
+            $data = [
+                'msgId' => $msgId,
+                'newMessage' => $newMessage,
+                'senderName' => $senderName,
+                'senderImage' => '\1\avatarProfile.png',
+                'beep' => $beep,
+                
+                
+            ];
+        }else{
+            $data = [
+                'msgId' => $msgId,
+                'newMessage' => $newMessage,
+                'senderName' => $senderName,
+                'senderImage' => $image,
+                'beep' => $beep,
+                
+                
+            ];
+        }
+        
+       
+        
 
         return $this->asJson($data);
+
+        
 
     }
 
