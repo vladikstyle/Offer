@@ -6,7 +6,7 @@ use youdate\widgets\HeaderNavigation;
 $countersMessagesNew = ArrayHelper::getValue($this->params, 'counters.messages.new');
 $groupsEnabled = ArrayHelper::getValue($this->params, 'site.groups.enabled', true);
 ?>
-<div class="header collapse d-md-block p-0" id="header-navigation">
+<div class="header collapse d-md-block p-0 show" id="header-navigation">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg order-lg-first">

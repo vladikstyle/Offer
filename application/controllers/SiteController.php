@@ -11,6 +11,7 @@ use app\models\Language;
 use app\models\Message;
 use app\models\User;
 use app\models\Photo;
+use app\models\Profile;
 use app\traits\CountryTrait;
 use Yii;
 use yii\captcha\CaptchaAction;
@@ -235,6 +236,81 @@ class SiteController extends \app\base\Controller
         ];
         return $this->asJson($ar);
 
+    }
+
+    public function actionMatchpop(){
+        $uid = $_POST['uid'];
+        $encId = $_POST['encId'];
+        // Active User Profile
+        $activeProfile = Profile::find()->where(['user_id' => $uid])->all();
+        foreach($activeProfile as $acPro){
+            $acname = $acPro->name;
+            $acdob = $acPro->dob;
+            $actimeZone = $acPro->timezone;
+            $accontry = $acPro->country;
+            $accity = $acPro->city;
+            $aclanguage_id = $acPro->language_id;
+        }
+
+        // Active Profile Photo
+        $activePhoto = Photo::find()->where(['user_id'=>$uid])->all();
+        foreach($activePhoto as $acphoto){
+            $acimage = $acphoto->source;
+        }
+
+        // MatchProfiles
+
+        $matchProfile = User::find()->where(['id'=>$encId])->all();
+        foreach($matchProfile as $mtPro){
+            $mtmatchId = $mtPro->id;
+            $mtname = $mtPro->username;
+        }
+
+        // Get Match User Name Only
+        $activeProfileName = Profile::find()->where(['user_id' => $mtmatchId])->all();
+        foreach($activeProfileName as $acProName){
+            $acProUserName = $acProName->name;
+        }
+
+
+        // Match Profile Photo
+        $matchPhoto = Photo::find()->where(['user_id'=>$mtmatchId])->all();
+        foreach($matchPhoto as $mtphoto){
+            $mtimage = $mtphoto->source;
+        }
+
+        if(empty($activePhoto)){
+            $acUserImage = '\1\avatarProfile.png';
+        }else{
+            $acUserImage = $acimage;
+        }
+
+        if(empty($matchPhoto)){
+            $data = [
+                'ActiveName' => $acname,
+                'ActiveImage' => $acUserImage,
+                'MatchId' => $mtmatchId,
+                'MatchName' => $acProUserName,
+                'MatchUserName' => $mtname,
+                'MatchImage' => '\1\avatarProfile.png',
+
+            ];
+        }else{
+            $data = [
+                'ActiveName' => $acname,
+                'ActiveImage' => $acUserImage,
+                'MatchId' => $mtmatchId,
+                'MatchName' => $acProUserName,
+                'MatchUserName' => $mtname,
+                'MatchImage' => $mtimage,
+            ];
+        }
+        
+
+
+
+
+        return $this->asJson($data);
     }
 
     
