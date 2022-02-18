@@ -12,6 +12,7 @@ use app\models\Message;
 use app\models\User;
 use app\models\Photo;
 use app\models\Profile;
+use app\models\Like;
 use app\traits\CountryTrait;
 use Yii;
 use yii\captcha\CaptchaAction;
@@ -154,23 +155,29 @@ class SiteController extends \app\base\Controller
 
     public function actionCreate(){
         $uid = $_POST['uid'];
+        // Hide Logs
+        $msgId = '';
+        $newMessage = '';
+        $senderId = '';
+        $beep = '';
+        $senderName = '';
+
+
         $message = Message::find()->where(['to_user_id' => $uid])->andWhere(['is_new' => '1'])->all();
         foreach($message as $msg){
             $msgId = $msg->id;
             $newMessage = $msg->text;
             $senderId = $msg->from_user_id;
             $beep = $msg->beep;
+
+            $sender = User::find()->where(['id' => $senderId])->all();
+            foreach($sender as $send){
+                $senderName = $send->username;
+            } 
+
         }
 
         
-
-        $sender = User::find()->where(['id' => $senderId])->all();
-        foreach($sender as $send){
-            $senderName = $send->username;
-        }
-
-        
-
         $photo = Photo::find()->where(['user_id' => $senderId])->all();
         foreach($photo as $photo){
             $image = $photo->source;
@@ -202,9 +209,11 @@ class SiteController extends \app\base\Controller
         }
         
        
-        
+        if($newMessage != ''){
+            return $this->asJson($data); 
+        }
 
-        return $this->asJson($data);
+        
 
         
 
@@ -213,9 +222,11 @@ class SiteController extends \app\base\Controller
     public function actionBeep(){
         $msgId = $_POST['msgId'];
         
-        $msg = Message::findOne($msgId);
+        if($msgId != ''){
+            $msg = Message::findOne($msgId);
         $msg->beep = 1;
         $msg->save();
+        }
 
         $ar = [
             'msg' => "Beep Update",
@@ -241,6 +252,20 @@ class SiteController extends \app\base\Controller
     public function actionMatchpop(){
         $uid = $_POST['uid'];
         $encId = $_POST['encId'];
+
+        // Insert Likes In DB for mutual
+        $mutual1 = new LiKE;
+        $mutual1->from_user_id = $uid;
+        $mutual1->to_user_id = $encId;
+        $mutual1->save();
+
+        $mutual2 = new LIKE;
+        $mutual2->from_user_id = $encId;
+        $mutual2->to_user_id = $uid; 
+        $mutual2->save();
+        
+
+
         // Active User Profile
         $activeProfile = Profile::find()->where(['user_id' => $uid])->all();
         foreach($activeProfile as $acPro){

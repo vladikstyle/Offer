@@ -61,7 +61,7 @@ $userId = Yii::$app->user->id;
             $('#matchName').html(data.MatchName);
             // Match Chat Link
             $('#matchChat').attr("href", "/profile/"+data.MatchUserName);
-            $("#matchModal").modal('show');
+            // $("#matchModal").modal('show');
             console.log(data);
            
         }

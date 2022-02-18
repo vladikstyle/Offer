@@ -251,6 +251,7 @@ class MessageManager extends Component
             $this->trigger(self::EVENT_AFTER_MESSAGE_CREATE, $event);
             $job = new CheckNewMessages();
             $job->userId = $contactId;
+
             Yii::$app->queue->delay($this->delayBeforeNotification)->push($job);
         }
 

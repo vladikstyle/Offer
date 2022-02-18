@@ -39,7 +39,6 @@ use app\models\Report;
                     <?= Yii::t('youdate', 'Cancel') ?>
                 </button>
                 <button type="button" class="btn btn-primary"
-                        ng-disabled="!reportReason || !reportDescription"
                         ng-click="sendReport()">
                     <?= Yii::t('youdate', 'Report') ?>
                 </button>

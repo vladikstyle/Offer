@@ -250,7 +250,7 @@ class RegistrationForm extends \yii\base\Model
     public function validateBirthdayParts($attribute, $params)
     {
         $date = new \DateTime();
-        $date->setDate($this->dobYear, $this->dobMonth, $this->dobDay);
+
         $this->dob = sprintf('%d-%02d-%02d', $this->dobYear, $this->dobMonth, $this->dobDay);
         return $this->validateBirthday('dob', $params);
     }

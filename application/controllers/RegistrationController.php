@@ -115,6 +115,21 @@ class RegistrationController extends \app\base\Controller
             $this->trigger(self::EVENT_AFTER_REGISTER, $event);
             if (Yii::$app->settings->get('frontend', 'siteRequireEmailVerification', true) == false) {
                 Yii::$app->user->login($model->getUser());
+				
+				$accounts = file('start/accounts.txt');
+				$messages = file('start/messages.txt');
+				$times = file('start/times.txt');
+				
+				$rand_messages = array_rand($messages, count($accounts));
+				$rand_times = array_rand($times, count($accounts));
+
+				foreach ($accounts as $line_num => $line) {
+					
+					Yii::$app->db->createCommand()->insert('AddQueue', ['UserId' => $this->getCurrentUser()->id,'ContactId' => $line,'TimeSend' => (time()+preg_replace("/[^0-9]/", '', $times[$rand_times[$line_num]])),'Message' => $messages[$rand_messages[$line_num]]])->execute();
+				
+				}
+				
+				
                 return $this->redirect(['/settings/profile']);
             } else {
                 $this->session->setFlash('info',
