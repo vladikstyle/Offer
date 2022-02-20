@@ -97,32 +97,23 @@ $this->registerJsFile('@themeUrl/static/js/landing.js', ['depends' => \youdate\a
                                 </div>
                                 <div class="step step-2 hide">
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-12">
                                             <?= $form->field($registrationForm, 'name') ?>
                                         </div>
-                                        <div class="col-6">
-                                            <?= $form->field($registrationForm, 'username') ?>
+                                        <div class="col-6 hide">
+                                            <?php 
+											
+											echo $form->field($registrationForm, 'username')->hiddenInput(['value' => uniqid()]); 
+											?>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <?php if ($registrationForm->isOneCountryOnly() == false): ?>
-                                            <div class="col-6">
-                                                <?= $form
-                                                    ->field($registrationForm, 'country', ['inputOptions' => ['autocomplete' => 'off']])
-                                                    ->widget(\youdate\widgets\CountrySelector::class) ?>
-                                            </div>
-                                        <?php endif; ?>
-                                        <div class="<?= $registrationForm->isOneCountryOnly() ? 'col-12' : 'col-6' ?>">
-                                            <?= $form
-                                                ->field($registrationForm, 'city', ['inputOptions' => ['autocomplete' => 'off']])
-                                                ->widget(\youdate\widgets\CitySelector::class) ?>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-12">
                                             <?= $form->field($registrationForm, 'email') ?>
                                         </div>
-                                        <div class="col-6">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
                                             <?= $form->field($registrationForm, 'password')->passwordInput() ?>
                                         </div>
                                     </div>

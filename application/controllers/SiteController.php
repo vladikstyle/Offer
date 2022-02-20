@@ -170,9 +170,9 @@ class SiteController extends \app\base\Controller
             $senderId = $msg->from_user_id;
             $beep = $msg->beep;
 
-            $sender = User::find()->where(['id' => $senderId])->all();
+            $sender = Profile::find()->where(['user_id' => $senderId])->all();
             foreach($sender as $send){
-                $senderName = $send->username;
+                $senderName = $send->name;
             } 
 
         }
